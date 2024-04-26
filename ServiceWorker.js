@@ -3,7 +3,7 @@ const cachables = {
 	"/ext-bin-1/": "cacheFirst",
 };
 
-const checkUrlCaching = (url) => (cachables[url] || cachables[`/${url.split('://')[1].join('://').split('/')[1]}/`]);
+const checkUrlCaching = (url) => (cachables[url] || cachables[`/${url.split('://').slice(1).join('://').split('/')[1]}/`]);
 
 const putResponseInCache = (request, response) => {
 	if (response.ok) {
