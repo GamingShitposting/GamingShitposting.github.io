@@ -26,7 +26,7 @@ const strategies = {
 			await putResponseInCache(request, networkResponse);
 			return networkResponse;
 		});
-		return (await caches.match(request)) || (await fetchResponsePromise));
+		return ((await caches.match(request)) || (await fetchResponsePromise));
 	},
 }
 
