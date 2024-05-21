@@ -7,7 +7,9 @@ const checkUrlCaching = (url) => (cachables[url] || cachables[`/${url.split('://
 
 const putResponseInCache = (request, response) => {
 	if (request.method === 'GET' && response.ok) {
-		return caches.open('GamingShitposting/v1').then((cache) => cache.put(request, response.clone()));
+		try {
+			return caches.open('GamingShitposting/v1').then((cache) => cache.put(request, response.clone()));
+		} catch(err) {}
 	}
 }
 
